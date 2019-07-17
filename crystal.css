@@ -1,0 +1,13 @@
+h1{
+    background-color: orange;
+    border: 2px solid black;
+    display: inline;
+}
+body{
+    background-image: url(morocco-blue.png);
+}
+.instructions{
+    background-color: tan;
+    border: 2px solid black;
+    margin-top: 2%;
+}

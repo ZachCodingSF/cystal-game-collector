@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystal Game</title>
+    <link rel="stylesheet" type="text/css" href="crystal.css">
+</head>
+<body>
+    <div class="header">
+		<h1>Crystal Collector</h1>
+	</div>
+	<div class="instructions">
+		<h3>Here's how you play the game</h3>
+		</br>
+		<ol>
+			<li>You will be given a random number at the start of the game.<span>"Number To Get"</span></li>
+			<li>There are four crystals below.</li>
+			<ul>
+				<li id="blue">Blue</li>
+				<li id="green">Green</li>
+				<li id="red">Red</li>
+				<li id="yellow">Yellow</li>
+			</ul>
+			<li>By clicking on a crystal, you will add a specific amount of points to your total score.</li>
+			<li>You win the game by matching your total score to the random number.</li>
+			<li>You lose the game if your total score goes above the random number.</li>
+			<li>The value of each crystal is hidden from you until you click on it.</li>
+			<li>Each time when the game starts, the game will change the values of each crystal.</li>
+        </ol>
+    </div>
+	<div class="numberToMatch">
+		<h2>Number To Get:
+			<span id= "randomNumber"></span>
+		</h2>
+	</div>
+	<div class="winsAndLosses">
+		<h2>Wins:
+			<span id= "numberWins"></span>
+			</br>
+			Losses: 
+			<span id= "numberLosses"></span>
+		</h2>
+	</div>
+	<div class="gems">
+		<img src="https://www.gemselect.com/graphics/blue-zircon-gemstone.jpg" class="gemImage" id="one" alt="Blue Gem" height="180px;" width="180px">
+		<img src="https://www.ajsgem.com/sites/default/files/ajs/natural-gemstones-chrome-diopside-dic-00250-l.jpg" class="gemImage" id="two" alt="Green Gem" height="180px;" width="180px">
+		<img src="http://pixelartmaker.com/art/1be68d4d2c42557.png" class="gemImage" id= "three" alt="Red Gem" height="180px;" width="180px">
+		<img src="http://gem2000.com/news/wp-content/uploads/2012/10/SapphireYellow1.62ct6.6x6.1mmCushionNSAHE_sm.jpg" class="gemImage" id="four" alt="Yellow Gem" height="180px;" width="180px">
+	</div>
+	<div class="userTotal">
+		<h2>Your total score is:
+			<span id="finalTotal"></span>
+		</h2>
+	</div>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+    var finalScore = 0;
+    var wins=0;
+    var losses=0;
+    var start=false;
+
+    var gemBlue;
+
+    var randomNum=Math.floor(Math.random()*40);
+    $('#randomNumber').text(randomNum);
+    function startGame(){
+    gemBlue=Math.floor(Math.random()*25);
+    var gemGreen=Math.floor(Math.random()*25);
+    var gemRed=Math.floor(Math.random()*25);
+    var gemYellow=Math.floor(Math.random()*25);
+    finalScore = 0;
+    wins=0;
+    losses=0;
+    start=true;}
+    
+    function useTotal(){
+    finalScore=finalScore+gemBlue;
+    console.log(finalScore);
+    $('#finalTotal').text(finalScore);
+    }
+
+$('.gemImage').click(function(){
+    if(!start){
+    startGame();
+    }
+    else{$('#one').click(useTotal())}
+})
+
+
+    </script>
+</body>
+</html> 
+
+</body>
+</html>
